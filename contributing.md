@@ -9,7 +9,7 @@
 ### Important notes
 
 - Do not push directly to the original repo.
-- Any PR must be reviewed and wait for a LGTM. Do not review and merge your own PR.
+- Any PR must be reviewed and wait for a LGTM (Looks Good To Me). Do not review and merge your own PR.
 - If you are not familiar with git, ask for help. Do not use any `--force` commands.
 
 ## Setup a Working Environment
