@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guessit/settings.dart';
 
 void main() {
   runApp(GuessItApp());
@@ -14,7 +15,12 @@ class GuessItApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Guess It'),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => MyHomePage(title: "Guess it"),
+        "settings": (context) => SettingsPage(),
+        "rules": (context) => MyHomePage(title: "Guess it"),
+      },
     );
   }
 }
@@ -66,7 +72,7 @@ class MyHomePage extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline4.copyWith(color: Theme.of(context).accentColor),
                     ),
                   ),
-                  onPressed: () => null,
+                  onPressed: () => Navigator.of(context).pushNamed("settings"),
                 ),
               ),
             ],
