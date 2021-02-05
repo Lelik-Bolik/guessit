@@ -6,7 +6,8 @@ class MenuButton extends StatelessWidget {
   final double height;
   final Function onPressed;
 
-  MenuButton({this.label, this.onPressed, this.width = 256.0, this.height = 64.0});
+  MenuButton(
+      {this.label, this.onPressed, this.width = 256.0, this.height = 64.0});
 
   @override
   Widget build(BuildContext context) {
