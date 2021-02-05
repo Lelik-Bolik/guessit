@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:guessit/settings.dart';
+import 'package:guessit/menu_button.dart';
 
 void main() {
   runApp(GuessItApp());
@@ -44,37 +45,9 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               Placeholder(),
               SizedBox(height: 16),
-              SizedBox(
-                width: 256.0,
-                child: FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0), side: BorderSide(color: Theme.of(context).accentColor,)),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 8.0),
-                    child: Text(
-                      'Play',
-                      style: Theme.of(context).textTheme.headline4.copyWith(color: Theme.of(context).accentColor),
-                    ),
-                  ),
-                  onPressed: () => null,
-                ),
-              ),
+              MenuButton(label:"Play", onPressed: () => null),
               SizedBox(height: 16),
-              SizedBox(
-                width: 256.0,
-                child: FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0), side: BorderSide(color: Theme.of(context).accentColor,)),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 8.0),
-                    child: Text(
-                      'Settings',
-                      style: Theme.of(context).textTheme.headline4.copyWith(color: Theme.of(context).accentColor),
-                    ),
-                  ),
-                  onPressed: () => Navigator.of(context).pushNamed("settings"),
-                ),
-              ),
+              MenuButton(label:"Setting", onPressed: () => Navigator.of(context).pushNamed("settings")),
             ],
           ),
         ),
