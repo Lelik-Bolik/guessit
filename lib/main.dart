@@ -45,9 +45,11 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               Placeholder(),
               SizedBox(height: 16),
-              MenuButton(label:"Play", onPressed: () => null),
+              MenuButton(label: "Play", onPressed: () => null),
               SizedBox(height: 16),
-              MenuButton(label:"Setting", onPressed: () => Navigator.of(context).pushNamed("settings")),
+              MenuButton(
+                  label: "Setting",
+                  onPressed: () => Navigator.of(context).pushNamed("settings")),
             ],
           ),
         ),
