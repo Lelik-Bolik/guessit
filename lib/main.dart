@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guessit/settings.dart';
 import 'package:guessit/menu_button.dart';
+import 'package:guessit/themes.dart';
 
 void main() {
   runApp(GuessItApp());
@@ -12,10 +13,8 @@ class GuessItApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'GuessIt',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      theme: Styles.lightThemeData,
+      darkTheme: Styles.darkThemeData,
       initialRoute: "/",
       routes: {
         "/": (context) => MyHomePage(title: "Guess it"),
