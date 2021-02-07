@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
-import 'package:guessit/settings.dart';
-import 'package:guessit/menu_button.dart';
-import 'package:guessit/themes.dart';
-import 'package:guessit/question.dart';
+import 'package:guessit/screens/settings.dart';
+import 'package:guessit/widgets/menu_button.dart';
+import 'package:guessit/config/themes.dart';
+import 'package:guessit/screens/question.dart';
 
 void main() {
   runApp(GuessItApp());
