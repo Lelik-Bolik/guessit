@@ -11,36 +11,37 @@ class QuestionContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.start,
-              //mainAxisSize: MainAxisSize.max,
-              children: [
-                Flexible(
-                  flex: 6,
-                  fit: FlexFit.loose,
-                  child: AutoSizeText(
-                      "Lorem ipsum dolor sit ametatiferin, consectetur adipiscing?",
-                      //maxLines: 8,
-                      maxFontSize: 32,
-                      minFontSize: 10,
-                      wrapWords: false,
-                      style: TextStyle(
-                          fontSize: 28.ssp, color: Colors.black, height: 1.5),
-                    ),
-                ),
-                Spacer(),
-                Flexible(
-                  flex: 1,
-                  fit: FlexFit.loose,
-                  child: Align(alignment: Alignment.centerLeft,child: Text("Lorem ipsum dolor")),
-                ),
-                Spacer(),
-              ],
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Flexible(
+              flex: 6,
+              fit: FlexFit.loose,
+              child: AutoSizeText(
+                "Lorem ipsum dolor sit ametatiferin, consectetur adipiscing?",
+                maxLines: 6,
+                maxFontSize: 32,
+                minFontSize: 10,
+                wrapWords: false,
+                style: TextStyle(
+                    fontSize: 28.ssp, color: Colors.black, height: 1.5),
+              ),
             ),
-          ),
-        ));
+            Spacer(),
+            Flexible(
+              flex: 1,
+              fit: FlexFit.loose,
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text("Lorem ipsum dolor")),
+            ),
+            Spacer(),
+          ],
+        ),
+      ),
+    ));
   }
 }
