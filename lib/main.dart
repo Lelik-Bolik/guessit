@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:guessit/settings.dart';
+import 'package:flutter_screenutil/screenutil_init.dart';
+import 'package:guessit/screens/settings.dart';
+import 'package:guessit/widgets/menu_button.dart';
+import 'package:guessit/config/themes.dart';
+import 'package:guessit/screens/question.dart';
 
 void main() {
   runApp(GuessItApp());
@@ -9,18 +13,20 @@ class GuessItApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'GuessIt',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return ScreenUtilInit(
+      allowFontScaling: true,
+          builder:()=> MaterialApp(
+        title: 'GuessIt',
+        theme: Styles.lightThemeData,
+        darkTheme: Styles.darkThemeData,
+        initialRoute: "/",
+        routes: {
+          "/": (context) => MyHomePage(title: "Guess it"),
+          "play": (context) => QuestionPage(question: "Question", answers: ["Answer", "Answer 2"],),
+          "settings": (context) => SettingsPage(),
+          "rules": (context) => MyHomePage(title: "Guess it"),
+        },
       ),
-      initialRoute: "/",
-      routes: {
-        "/": (context) => MyHomePage(title: "Guess it"),
-        "settings": (context) => SettingsPage(),
-        "rules": (context) => MyHomePage(title: "Guess it"),
-      },
     );
   }
 }
@@ -44,37 +50,12 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               Placeholder(),
               SizedBox(height: 16),
-              SizedBox(
-                width: 256.0,
-                child: FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0), side: BorderSide(color: Theme.of(context).accentColor,)),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 8.0),
-                    child: Text(
-                      'Play',
-                      style: Theme.of(context).textTheme.headline4.copyWith(color: Theme.of(context).accentColor),
-                    ),
-                  ),
-                  onPressed: () => null,
-                ),
-              ),
+              MenuButton(label: "Play",
+                  onPressed: () => Navigator.of(context).pushNamed("play")),
               SizedBox(height: 16),
-              SizedBox(
-                width: 256.0,
-                child: FlatButton(
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0), side: BorderSide(color: Theme.of(context).accentColor,)),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16.0, vertical: 8.0),
-                    child: Text(
-                      'Settings',
-                      style: Theme.of(context).textTheme.headline4.copyWith(color: Theme.of(context).accentColor),
-                    ),
-                  ),
-                  onPressed: () => Navigator.of(context).pushNamed("settings"),
-                ),
-              ),
+              MenuButton(
+                  label: "Setting",
+                  onPressed: () => Navigator.of(context).pushNamed("settings")),
             ],
           ),
         ),
