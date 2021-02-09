@@ -4,6 +4,7 @@ import 'package:guessit/screens/settings.dart';
 import 'package:guessit/widgets/menu_button.dart';
 import 'package:guessit/config/themes.dart';
 import 'package:guessit/screens/question.dart';
+import 'package:guessit/screens/pregame.dart';
 
 void main() {
   runApp(GuessItApp());
@@ -15,14 +16,18 @@ class GuessItApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       allowFontScaling: true,
-          builder:()=> MaterialApp(
+      builder: () => MaterialApp(
         title: 'GuessIt',
         theme: Styles.lightThemeData,
         darkTheme: Styles.darkThemeData,
         initialRoute: "/",
         routes: {
           "/": (context) => MyHomePage(title: "Guess it"),
-          "play": (context) => QuestionPage(question: "Question", answers: ["Answer", "Answer 2"],),
+          "play": (context) => QuestionPage(
+                question: "Question",
+                answers: ["Answer", "Answer 2"],
+              ),
+          "pregame": (context) => PreGamePage(),
           "settings": (context) => SettingsPage(),
           "rules": (context) => MyHomePage(title: "Guess it"),
         },
@@ -50,12 +55,17 @@ class MyHomePage extends StatelessWidget {
             children: <Widget>[
               Placeholder(),
               SizedBox(height: 16),
-              MenuButton(label: "Play",
+              MenuButton(
+                  label: "Play",
                   onPressed: () => Navigator.of(context).pushNamed("play")),
               SizedBox(height: 16),
               MenuButton(
                   label: "Setting",
                   onPressed: () => Navigator.of(context).pushNamed("settings")),
+              MenuButton(
+                  label: "Pregame",
+                  onPressed: () => Navigator.of(context).pushNamed("pregame")),
+              SizedBox(height: 16),
             ],
           ),
         ),
