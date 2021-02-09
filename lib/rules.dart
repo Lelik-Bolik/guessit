@@ -6,7 +6,7 @@ class RulesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         title: Text(title),
       ),
@@ -21,7 +21,7 @@ class RulesPage extends StatelessWidget {
                   text: TextSpan(
                     text: 'Step 1',
                     style: TextStyle(
-                      color: Colors.purple,
+                      color: Theme.of(context).accentColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
@@ -40,7 +40,7 @@ class RulesPage extends StatelessWidget {
                   text: TextSpan(
                     text: 'Step 2',
                     style: TextStyle(
-                      color: Colors.purple,
+                      color: Theme.of(context).accentColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
@@ -59,7 +59,7 @@ class RulesPage extends StatelessWidget {
                   text: TextSpan(
                     text: 'Step 3',
                     style: TextStyle(
-                      color: Colors.purple,
+                      color: Theme.of(context).accentColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
@@ -78,7 +78,7 @@ class RulesPage extends StatelessWidget {
                   text: TextSpan(
                     text: 'Winner is ',
                     style: TextStyle(
-                      color: Colors.purple,
+                      color: Theme.of(context).accentColor,
                       fontWeight: FontWeight.bold,
                       fontSize: 30,
                     ),
