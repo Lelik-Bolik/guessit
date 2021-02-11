@@ -1,8 +1,8 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:guessit/config/constants.dart';
+import 'package:guessit/widgets/slider_setting.dart';
 
 class PreGamePage extends StatefulWidget {
   @override
@@ -10,97 +10,41 @@ class PreGamePage extends StatefulWidget {
 }
 
 class _PreGamePageState extends State<PreGamePage> {
-  int segmentedTimeGroupValue = 0;
-  int segmentedTeamGroupValue = 0;
-  int segmentedPlayerGroupValue = 0;
-  int segmentedRoundGroupValue = 0;
+  static String title = "Preferences";
 
-  final Map<int, Widget> teamTabs = const <int, Widget>{
-    0: Text("2 team"),
-    1: Text("3 teams"),
-    2: Text("4 teams"),
-    3: Text("5 teams"),
-  };
-
-  final Map<int, Widget> timeTabs = const <int, Widget>{
-    0: Text("10"),
-    1: Text("20"),
-    2: Text("30"),
-    3: Text("40"),
-    4: Text("50"),
-    5: Text("60"),
-  };
-
-  final Map<int, Widget> playerTabs = const <int, Widget>{
-    0: Text("2 players"),
-    1: Text("3 players"),
-    2: Text("4 players"),
-    3: Text("5 players"),
-    4: Text("6 players"),
-    5: Text("7 players"),
-  };
-
-  final Map<int, Widget> roundTabs = const <int, Widget>{
-    0: Text("5"),
-    1: Text("10"),
-    2: Text("15"),
-    3: Text("20"),
-    4: Text("25"),
-    5: Text("30"),
-  };
+  int _segmentedTimeGroupValue = 0;
+  int _segmentedTeamGroupValue = 0;
+  int _segmentedPlayerGroupValue = 0;
+  int _segmentedRoundGroupValue = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(title),
+      ),
       body: SafeArea(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          //mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          //mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            SizedBox(height: 100),
-            Text('Number of teams'),
-            CupertinoSlidingSegmentedControl(
-                groupValue: segmentedTeamGroupValue,
-                children: teamTabs,
-                thumbColor: Colors.blue[300],
-                onValueChanged: (i) {
-                  setState(() {
-                    segmentedTeamGroupValue = i;
-                  });
-                }),
-            SizedBox(height: 80),
-            Text('Number of players'),
-            CupertinoSlidingSegmentedControl(
-                groupValue: segmentedPlayerGroupValue,
-                children: playerTabs,
-                thumbColor: Colors.blue[300],
-                onValueChanged: (i) {
-                  setState(() {
-                    segmentedPlayerGroupValue = i;
-                  });
-                }),
-            SizedBox(height: 80),
-            Text('Number of Rounds'),
-            CupertinoSlidingSegmentedControl(
-                groupValue: segmentedRoundGroupValue,
-                children: roundTabs,
-                thumbColor: Colors.blue[300],
-                onValueChanged: (i) {
-                  setState(() {
-                    segmentedRoundGroupValue = i;
-                  });
-                }),
-            SizedBox(height: 80),
-            Text('Seconds of each round'),
-            CupertinoSlidingSegmentedControl(
-                groupValue: segmentedTimeGroupValue,
-                children: timeTabs,
-                thumbColor: Colors.blue[300],
-                onValueChanged: (i) {
-                  setState(() {
-                    segmentedTimeGroupValue = i;
-                  });
-                }),
+            //to i tha perniete sta settings kai tha allazei analogos me tin epilogi.
+            SettingSlider(
+                title: "Number of Teams",
+                tabs: teamTabs,
+                onValue: (i) => _segmentedTeamGroupValue = i),
+            SettingSlider(
+                title: "Number of Players",
+                tabs: playerTabs,
+                onValue: (i) => _segmentedPlayerGroupValue = i),
+            SettingSlider(
+                title: "Number of Rounds",
+                tabs: roundTabs,
+                onValue: (i) => _segmentedRoundGroupValue = i),
+            SettingSlider(
+                title: "Seconds of each Round",
+                tabs: timeTabs,
+                onValue: (i) => _segmentedTimeGroupValue = i),
           ],
         ),
       ),
