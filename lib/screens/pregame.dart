@@ -16,6 +16,7 @@ class _PreGamePageState extends State<PreGamePage> {
   int _segmentedTeamGroupValue = 0;
   int _segmentedPlayerGroupValue = 0;
   int _segmentedRoundGroupValue = 0;
+  int _segmentedAnswerGroupValue = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,6 @@ class _PreGamePageState extends State<PreGamePage> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          //mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             //to i tha perniete sta settings kai tha allazei analogos me tin epilogi.
             SettingSlider(
@@ -45,6 +45,10 @@ class _PreGamePageState extends State<PreGamePage> {
                 title: "Seconds of each Round",
                 tabs: timeTabs,
                 onValue: (i) => _segmentedTimeGroupValue = i),
+            SettingSlider(
+                title: "Number of Answers Required",
+                tabs: answerTabs,
+                onValue: (i) => _segmentedAnswerGroupValue = i),
           ],
         ),
       ),
