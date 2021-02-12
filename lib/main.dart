@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
+import 'package:guessit/rules.dart';
 import 'package:guessit/screens/settings.dart';
 import 'package:guessit/widgets/menu_button.dart';
 import 'package:guessit/config/themes.dart';
@@ -15,16 +16,19 @@ class GuessItApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       allowFontScaling: true,
-          builder:()=> MaterialApp(
+      builder: () => MaterialApp(
         title: 'GuessIt',
         theme: Styles.lightThemeData,
         darkTheme: Styles.darkThemeData,
         initialRoute: "/",
         routes: {
           "/": (context) => MyHomePage(title: "Guess it"),
-          "play": (context) => QuestionPage(question: "Question", answers: ["Answer", "Answer 2"],),
+          "play": (context) => QuestionPage(
+                question: "Question",
+                answers: ["Answer", "Answer 2"],
+              ),
           "settings": (context) => SettingsPage(),
-          "rules": (context) => MyHomePage(title: "Guess it"),
+          "rules": (context) => RulesPage(),
         },
       ),
     );
@@ -48,14 +52,19 @@ class MyHomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Placeholder(),
+              Container(height: 256, width: 256, child: Placeholder()),
               SizedBox(height: 16),
-              MenuButton(label: "Play",
+              MenuButton(
+                  label: "Play",
                   onPressed: () => Navigator.of(context).pushNamed("play")),
               SizedBox(height: 16),
               MenuButton(
-                  label: "Setting",
+                  label: "Settings",
                   onPressed: () => Navigator.of(context).pushNamed("settings")),
+              SizedBox(height: 16),
+              MenuButton(
+                  label: "Rules",
+                  onPressed: () => Navigator.of(context).pushNamed("rules")),
             ],
           ),
         ),
