@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
-import 'package:guessit/rules.dart';
+import 'package:guessit/screens/rules.dart';
 import 'package:guessit/screens/settings.dart';
 import 'package:guessit/widgets/menu_button.dart';
 import 'package:guessit/config/themes.dart';

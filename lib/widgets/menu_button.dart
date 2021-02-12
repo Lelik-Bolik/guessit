@@ -27,7 +27,7 @@ class MenuButton extends StatelessWidget {
                 label,
                 style: Theme.of(context)
                     .textTheme
-                    .headline4
+                    .button
                     .copyWith(color: Theme.of(context).accentColor),
               ),
             )));
