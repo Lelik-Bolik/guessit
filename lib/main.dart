@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil_init.dart';
-import 'package:guessit/screens/settings.dart';
-import 'package:guessit/widgets/menu_button.dart';
+import 'package:guessit/presentation/screens/settings.dart';
+import 'package:guessit/presentation/widgets/menu_button.dart';
 import 'package:guessit/config/themes.dart';
-import 'package:guessit/screens/question.dart';
-import 'package:guessit/screens/pregame.dart';
+import 'package:guessit/presentation/screens/question.dart';
+import 'package:guessit/presentation/screens/pregame.dart';
+import 'package:provider/provider.dart';
+
+import 'data/models/game_preferences.dart';
 
 void main() {
   runApp(GuessItApp());
@@ -16,21 +19,24 @@ class GuessItApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       allowFontScaling: true,
-      builder: () => MaterialApp(
-        title: 'GuessIt',
-        theme: Styles.lightThemeData,
-        darkTheme: Styles.darkThemeData,
-        initialRoute: "/",
-        routes: {
-          "/": (context) => MyHomePage(title: "Guess it"),
-          "play": (context) => QuestionPage(
-                question: "Question",
-                answers: ["Answer", "Answer 2"],
-              ),
-          "pregame": (context) => PreGamePage(),
-          "settings": (context) => SettingsPage(),
-          "rules": (context) => MyHomePage(title: "Guess it"),
-        },
+      builder: () => ChangeNotifierProvider<GamePreferences>(
+        create: (context) => GamePreferences(),
+        child: MaterialApp(
+          title: 'GuessIt',
+          theme: Styles.lightThemeData,
+          darkTheme: Styles.darkThemeData,
+          initialRoute: "/",
+          routes: {
+            "/": (context) => MyHomePage(title: "Guess it"),
+            "play": (context) => QuestionPage(
+                  question: "Question",
+                  answers: ["Answer", "Answer 2"],
+                ),
+            "pregame": (context) => PreGamePage(),
+            "settings": (context) => SettingsPage(),
+            "rules": (context) => MyHomePage(title: "Guess it"),
+          },
+        ),
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:guessit/widgets/options_list.dart';
-import 'package:guessit/widgets/question_container.dart';
-import 'package:guessit/widgets/question_header.dart';
+import 'package:guessit/presentation/widgets/options_list.dart';
+import 'package:guessit/presentation/widgets/question_container.dart';
+import 'package:guessit/presentation/widgets/question_header.dart';
 
 /// The screen/page that is displayed during gameplay.
 ///

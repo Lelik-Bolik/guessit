@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:guessit/widgets/option.dart';
+import 'package:guessit/presentation/widgets/option.dart';
 
 /// The widget that holds the [Option] widgets.
 ///
